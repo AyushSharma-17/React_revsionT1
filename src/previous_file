@@ -1,0 +1,20 @@
+function App() {
+    function callFun() {
+        alert("Hello World")
+    }
+    const fruit = () => {
+        alert("i am fruit")
+    }
+    const fun = (name) => {
+        alert(`Hello ${name}`)
+    }
+    return (
+        <div>
+            <h1>event function call</h1>
+            <button onClick={callFun}>Click me</button>
+            <button onClick={fruit}>Click me</button>
+            <button onClick={() => fun("John")}>Click me</button>
+        </div>
+    )
+}
+export default App;
