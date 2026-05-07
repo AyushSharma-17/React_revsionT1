@@ -1,20 +1,15 @@
-import Student from "./Student";
-import Wrapper from "./Wrapper";
+import { useState } from "react";
 
 function App() {
+  const [val, setVal] = useState("Ayush");
   return (
     <>
-      <h1> default props</h1>
-      <Student />
-      <h2> normal passing of props</h2>
-      <Student name="ayush" />
-
-      <Wrapper>
-        <Student name="ayush" />
-      </Wrapper>
-      <Wrapper color="blue">
-        <h1>hello</h1>
-      </Wrapper>
+      <h1>enter the username in input field</h1>
+      <h2>
+        <input type="text" onChange={(event) => setVal(event.target.value)} placeholder="enter username"></input>
+      </h2>
+      <h1>{val}</h1>
+      <button onClick={() => setVal("")}>clear</button>
     </>
   )
 }
