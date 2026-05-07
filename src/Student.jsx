@@ -1,8 +1,9 @@
-function Student({ name }) {
+function Student({ name = "default name" }) {
     return (
         <>
+
+            <h1> hello {name}</h1>
             <hr />
-            <h1>{name}</h1>
         </>
     )
 }
