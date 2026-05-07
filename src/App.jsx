@@ -1,17 +1,13 @@
-import User from "./User";
+import { useState } from "react";
+import Student from "./Student";
+
 function App() {
-
-  let userObject = {
-    name: "ayush",
-    age: 23,
-    email: "email@ayush.com"
-  }
-
+  const [student, setStudent] = useState("shan");
   return (
     <>
-
-      <User user={userObject} />
+      <h1>props in react with the useState </h1>
+      {student && <Student name={student} />}
+      <button onClick={() => setStudent("Ayush")}>update student name</button>
     </>
   )
-
 } export default App;
