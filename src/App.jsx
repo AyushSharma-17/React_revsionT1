@@ -1,11 +1,17 @@
 import User from "./User";
 function App() {
-  let userName = "Ayush";
-  let age = 23;
-  let email = "ayush123@gmail.conm";
+
+  let userObject = {
+    name: "ayush",
+    age: 23,
+    email: "email@ayush.com"
+  }
+
   return (
-    <div>
-      <User name={userName} age={age} email={email} />
-    </div>
+    <>
+
+      <User user={userObject} />
+    </>
   )
+
 } export default App;
