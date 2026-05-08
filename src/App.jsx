@@ -1,26 +1,20 @@
 import { useState } from "react";
-
 function App() {
-  const [name, setName] = useState('');
-  const [age, setAge] = useState('');
-  const [email, setEmail] = useState('');
+  const [gender, setGender] = useState('');
   return (
-    <>
-      <h1>enter the username in input field</h1>
+    <div>
+      <h1>
+        handle the radio button by useSate
+      </h1>
       <h2>
-        <input type="text" onChange={(event) => setName(event.target.value)} placeholder="enter username"></input>
+        Select the gender:
+        <br />
+        <input type="radio" onChange={(event) => setGender(event.target.value)} name="gender" value={"male"} checked={gender === 'male'} />Male
+        <input type="radio" onChange={(event) => setGender(event.target.value)} name="gender" value={"female"} checked={gender === 'female'} />Female
+        <br />
+        <p>You have selected : {gender}</p>
       </h2>
-      <h2>
-        <input type="text" onChange={(event) => setAge(event.target.value)} placeholder="enter age"></input>
-      </h2>
-      <h2>
-        <input type="text" onChange={(event) => setEmail(event.target.value)} placeholder="enter email"></input>
-      </h2>
-      <h1>Name := {name}</h1>
-      <h1>age :={age}</h1>
-      <h1>email:= {email}</h1>
-      <button onClick={() => { setName(''); setAge(''); setEmail('') }}>clear</button>
-    </>
+    </div>
   )
 }
 export default App;
