@@ -1,19 +1,17 @@
 import { useState } from "react";
 function App() {
-  const [gender, setGender] = useState('');
+  const [city, setCity] = useState("Delhi")
+
   return (
     <div>
-      <h1>
-        handle the radio button by useSate
-      </h1>
-      <h2>
-        Select the gender:
-        <br />
-        <input type="radio" onChange={(event) => setGender(event.target.value)} name="gender" value={"male"} checked={gender === 'male'} />Male
-        <input type="radio" onChange={(event) => setGender(event.target.value)} name="gender" value={"female"} checked={gender === 'female'} />Female
-        <br />
-        <p>You have selected : {gender}</p>
-      </h2>
+      <h2>Select city</h2>
+      <select onChange={(event) => setCity(event.target.value)} defaultValue={"delhi"}>
+        <option value="delhi">Delhi</option>
+        <option value="mumbai">Mumbai</option>
+        <option value="kolkata">Kolkata</option>
+      </select>
+
+      <h2>city value: {city}</h2>
     </div>
   )
 }
