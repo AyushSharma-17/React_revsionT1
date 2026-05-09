@@ -1,17 +1,35 @@
-import { useState } from "react";
+import UserRev from "./UserRev";
 function App() {
-  const [city, setCity] = useState("Delhi")
-
+  const userData = [{
+    name: "ayush",
+    age: 23,
+    email: "ayush@gmail.com"
+  },
+  {
+    name: "aman",
+    age: 24,
+    email: "aman@gmail.com"
+  },
+  {
+    name: "ayushi",
+    age: 22,
+    email: "ayushi@gmail.com"
+  },
+  {
+    name: "kam",
+    age: 25,
+    email: "kam@gmail.com"
+  }]
   return (
     <div>
-      <h2>Select city</h2>
-      <select onChange={(event) => setCity(event.target.value)} defaultValue={"delhi"}>
-        <option value="delhi">Delhi</option>
-        <option value="mumbai">Mumbai</option>
-        <option value="kolkata">Kolkata</option>
-      </select>
-
-      <h2>city value: {city}</h2>
+      <h1>Reuse component </h1>
+      {
+        userData.map((user, index) => (
+          <div key={index}>
+            <UserRev data={user} />
+          </div>
+        ))
+      }
     </div>
   )
 }

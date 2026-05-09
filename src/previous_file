@@ -1,21 +1,21 @@
 function App() {
-function callFun() {
-alert("Hello World")
-}
-const fruit = () => {
-alert("i am fruit")
-}
-const fun = (name) => {
-alert(`Hello ${name}`)
-}
-return (
-<div>
-  <h1>event function call</h1>
-  <button onClick={callFun}>Click me</button>
-  <button onClick={fruit}>Click me</button>
-  <button onClick={()=> fun("John")}>Click me</button>
-</div>
-)
+  function callFun() {
+    alert("Hello World")
+  }
+  const fruit = () => {
+    alert("i am fruit")
+  }
+  const fun = (name) => {
+    alert(`Hello ${name}`)
+  }
+  return (
+    <div>
+      <h1>event function call</h1>
+      <button onClick={callFun}>Click me</button>
+      <button onClick={fruit}>Click me</button>
+      <button onClick={() => fun("John")}>Click me</button>
+    </div>
+  )
 }
 export default App;
 
@@ -27,25 +27,25 @@ import { useState } from "react";
 import Counter from "./Counter";
 import Toggle from "./toggle";
 function App() {
-const [Fruit, setFruit] = useState("Apple");
+  const [Fruit, setFruit] = useState("Apple");
 
-const handleFruit = () => {
-setFruit("Bannana")
-}
-return (
-<div>
-  <h2>State useState in react {Fruit}</h2>
-  <h3>
-    <button onClick={handleFruit}>Click to change fruit</button>
+  const handleFruit = () => {
+    setFruit("Bannana")
+  }
+  return (
+    <div>
+      <h2>State useState in react {Fruit}</h2>
+      <h3>
+        <button onClick={handleFruit}>Click to change fruit</button>
 
-  </h3>
-  <h2>
-    <Counter />
-  </h2>
-  <Toggle />
-</div>
+      </h3>
+      <h2>
+        <Counter />
+      </h2>
+      <Toggle />
+    </div>
 
-)
+  )
 }
 export default App;
 
@@ -56,28 +56,28 @@ export default App;
 
 import { useState } from "react";
 function App() {
-const [count, setCount] = useState(0);
-return (
-<div>
-  <h1>useState with condition</h1>
-  <h2>{count}</h2>
-  <button onClick={()=> setCount(count + 1)}>click to increamnet</button>
-  {
-  count == 0 ? <h1>condition 0</h1>
-  : count == 1 ? <h1>condition 1</h1>
-  : count == 2 ? <h1>condition 2</h1>
-  : count == 3 ? <h1>condition 3</h1>
-  : count == 4 ? <h1>condition 4</h1>
-  : count == 5 ? <h1>condition 5</h1>
-  : count == 6 ? <h1>condition 6</h1>
-  : count == 7 ? <h1>condition 7</h1>
-  : count == 8 ? <h1>condition 8</h1>
-  : count == 9 ? <h1>condition 9</h1>
-  : count == 10 ? <h1>condition 10</h1>
-  : <h1>condition more than 10</h1>
-  }
-</div>
-)
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <h1>useState with condition</h1>
+      <h2>{count}</h2>
+      <button onClick={() => setCount(count + 1)}>click to increamnet</button>
+      {
+        count == 0 ? <h1>condition 0</h1>
+          : count == 1 ? <h1>condition 1</h1>
+            : count == 2 ? <h1>condition 2</h1>
+              : count == 3 ? <h1>condition 3</h1>
+                : count == 4 ? <h1>condition 4</h1>
+                  : count == 5 ? <h1>condition 5</h1>
+                    : count == 6 ? <h1>condition 6</h1>
+                      : count == 7 ? <h1>condition 7</h1>
+                        : count == 8 ? <h1>condition 8</h1>
+                          : count == 9 ? <h1>condition 9</h1>
+                            : count == 10 ? <h1>condition 10</h1>
+                              : <h1>condition more than 10</h1>
+      }
+    </div>
+  )
 }
 export default App;
 
@@ -89,15 +89,15 @@ import { useState } from "react";
 import Student from "./Student";
 
 function App() {
-const [student, setStudent] = useState("shan");
-return (
-<>
-  <h1>props in react with the useState </h1>
-  {student &&
-  <Student name={student} />}
-  <button onClick={()=> setStudent("Ayush")}>update student name</button>
-</>
-)
+  const [student, setStudent] = useState("shan");
+  return (
+    <>
+      <h1>props in react with the useState </h1>
+      {student &&
+        <Student name={student} />}
+      <button onClick={() => setStudent("Ayush")}>update student name</button>
+    </>
+  )
 } export default App;
 
 
@@ -105,13 +105,13 @@ return (
 
 //////////////////////////////////////////////////////////////////////////
 function User({ user }) {
-return (
-<>
-  <h1>name is : {user.name}</h1>
-  <h1>age is : {user.age}</h1>
-  <h1>email is : {user.email}</h1>
-</>
-)
+  return (
+    <>
+      <h1>name is : {user.name}</h1>
+      <h1>age is : {user.age}</h1>
+      <h1>email is : {user.email}</h1>
+    </>
+  )
 } export default User;
 
 
@@ -123,21 +123,21 @@ import Student from "./Student";
 import Wrapper from "./Wrapper";
 
 function App() {
-return (
-<>
-  <h1> default props</h1>
-  <Student />
-  <h2> normal passing of props</h2>
-  <Student name="ayush" />
+  return (
+    <>
+      <h1> default props</h1>
+      <Student />
+      <h2> normal passing of props</h2>
+      <Student name="ayush" />
 
-  <Wrapper>
-    <Student name="ayush" />
-  </Wrapper>
-  <Wrapper color="blue">
-    <h1>hello</h1>
-  </Wrapper>
-</>
-)
+      <Wrapper>
+        <Student name="ayush" />
+      </Wrapper>
+      <Wrapper color="blue">
+        <h1>hello</h1>
+      </Wrapper>
+    </>
+  )
 }
 export default App;
 
@@ -150,17 +150,17 @@ get input from input filed////////////////////////////////////
 import { useState } from "react";
 
 function App() {
-const [val, setVal] = useState("Ayush");
-return (
-<>
-  <h1>enter the username in input field</h1>
-  <h2>
-    <input type="text" onChange={(event)=> setVal(event.target.value)} placeholder="enter username"></input>
-  </h2>
-  <h1>{val}</h1>
-  <button onClick={()=> setVal("")}>clear</button>
-</>
-)
+  const [val, setVal] = useState("Ayush");
+  return (
+    <>
+      <h1>enter the username in input field</h1>
+      <h2>
+        <input type="text" onChange={(event) => setVal(event.target.value)} placeholder="enter username"></input>
+      </h2>
+      <h1>{val}</h1>
+      <button onClick={() => setVal("")}>clear</button>
+    </>
+  )
 }
 export default App;
 
@@ -176,27 +176,27 @@ controlled components
 import { useState } from "react";
 
 function App() {
-const [name, setName] = useState('');
-const [age, setAge] = useState('');
-const [email, setEmail] = useState('');
-return (
-<>
-  <h1>enter the username in input field</h1>
-  <h2>
-    <input type="text" onChange={(event)=> setName(event.target.value)} placeholder="enter username"></input>
-  </h2>
-  <h2>
-    <input type="text" onChange={(event)=> setAge(event.target.value)} placeholder="enter age"></input>
-  </h2>
-  <h2>
-    <input type="text" onChange={(event)=> setEmail(event.target.value)} placeholder="enter email"></input>
-  </h2>
-  <h1>Name := {name}</h1>
-  <h1>age :={age}</h1>
-  <h1>email:= {email}</h1>
-  <button onClick={()=> { setName(''); setAge(''); setEmail('') }}>clear</button>
-</>
-)
+  const [name, setName] = useState('');
+  const [age, setAge] = useState('');
+  const [email, setEmail] = useState('');
+  return (
+    <>
+      <h1>enter the username in input field</h1>
+      <h2>
+        <input type="text" onChange={(event) => setName(event.target.value)} placeholder="enter username"></input>
+      </h2>
+      <h2>
+        <input type="text" onChange={(event) => setAge(event.target.value)} placeholder="enter age"></input>
+      </h2>
+      <h2>
+        <input type="text" onChange={(event) => setEmail(event.target.value)} placeholder="enter email"></input>
+      </h2>
+      <h1>Name := {name}</h1>
+      <h1>age :={age}</h1>
+      <h1>email:= {email}</h1>
+      <button onClick={() => { setName(''); setAge(''); setEmail('') }}>clear</button>
+    </>
+  )
 }
 export default App;
 
@@ -209,24 +209,24 @@ handle radio button //////////////////////////
 
 import { useState } from "react";
 function App() {
-const [gender, setGender] = useState('');
-return (
-<div>
-  <h1>
-    handle the radio button by useSate
-  </h1>
-  <h2>
-    Select the gender:
-    <br />
-    <input type="radio" onChange={(event)=> setGender(event.target.value)} name="gender" value={"male"} checked={gender
-    === 'male'} />Male
-    <input type="radio" onChange={(event)=> setGender(event.target.value)} name="gender" value={"female"}
-    checked={gender === 'female'} />Female
-    <br />
-    <p>You have selected : {gender}</p>
-  </h2>
-</div>
-)
+  const [gender, setGender] = useState('');
+  return (
+    <div>
+      <h1>
+        handle the radio button by useSate
+      </h1>
+      <h2>
+        Select the gender:
+        <br />
+        <input type="radio" onChange={(event) => setGender(event.target.value)} name="gender" value={"male"} checked={gender
+          === 'male'} />Male
+        <input type="radio" onChange={(event) => setGender(event.target.value)} name="gender" value={"female"}
+          checked={gender === 'female'} />Female
+        <br />
+        <p>You have selected : {gender}</p>
+      </h2>
+    </div>
+  )
 }
 export default App;
 
@@ -241,19 +241,107 @@ use of dropdown with useState /////////////////////////
 
 import { useState } from "react";
 function App() {
-const [city, setCity] = useState("Delhi")
+  const [city, setCity] = useState("Delhi")
 
-return (
-<div>
-  <h2>Select city</h2>
-  <select onChange={(event)=> setCity(event.target.value)} defaultValue={"delhi"}>
-    <option value="delhi">Delhi</option>
-    <option value="mumbai">Mumbai</option>
-    <option value="kolkata">Kolkata</option>
-  </select>
+  return (
+    <div>
+      <h2>Select city</h2>
+      <select onChange={(event) => setCity(event.target.value)} defaultValue={"delhi"}>
+        <option value="delhi">Delhi</option>
+        <option value="mumbai">Mumbai</option>
+        <option value="kolkata">Kolkata</option>
+      </select>
 
-  <h2>city value: {city}</h2>
-</div>
-)
+      <h2>city value: {city}</h2>
+    </div>
+  )
+}
+export default App;
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+////  looping with the map 
+////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+
+
+function App() {
+  const userData = [{
+    name: "ayush",
+    age: 22,
+    email: "ayush@gmail.com"
+  }, {
+    name: "aman",
+    age: 23,
+    email: "aman@gmail.com"
+  }, {
+    name: "ananya",
+    age: 24,
+    email: "ananya@gmail.com"
+  }]
+  return (
+    <div>
+      <h1>use of loop with help of map</h1>
+      <table border="1px solid black">
+        <tr>
+          <th>name</th>
+          <th>age</th>
+          <th>email</th>
+        </tr>
+        {userData.map((user, index) => (
+          <tr key={index}>
+            <td>{user.name}</td>
+            <td>{user.age}</td>
+            <td>{user.email}</td>
+          </tr>
+        ))}
+      </table>
+    </div>
+  )
+}
+export default App;
+
+
+////////////////////////////////////////////
+//////////////////////////////////////////////////
+///looping and reuse of elements//////////////
+////////////////////////////////////
+
+import UserRev from "./UserRev";
+function App() {
+  const userData = [{
+    name: "ayush",
+    age: 23,
+    email: "ayush@gmail.com"
+  },
+  {
+    name: "aman",
+    age: 24,
+    email: "aman@gmail.com"
+  },
+  {
+    name: "ayushi",
+    age: 22,
+    email: "ayushi@gmail.com"
+  },
+  {
+    name: "kam",
+    age: 25,
+    email: "kam@gmail.com"
+  }]
+  return (
+    <div>
+      <h1>Reuse component </h1>
+      {
+        userData.map((user, index) => (
+          <div key={index}>
+            <UserRev data={user} />
+          </div>
+        ))
+      }
+    </div>
+  )
 }
 export default App;
