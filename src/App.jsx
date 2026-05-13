@@ -1,19 +1,19 @@
-import User1 from "./User1";
+import { useRef } from "react";
+import UserInput from "./UserInput";
 function App() {
 
-  const displayName = (name) => {
-    alert(name);
-  }
-  const getUser = () => {
-    alert("get user function called");
+  const inputRef = useRef(null);
+
+  const updateInput = () => {
+    inputRef.current.value = 1000;
+    inputRef.current.style.color = "red";
+    inputRef.current.focus();
   }
   return (
     <div>
-      <h1>
-        Call parent component function from child
-      </h1>
-      <User1 displayName={displayName} name="Ayush" getUser={getUser} />
-      <User1 displayName={displayName} name="Sam" getUser={getUser} />
+      <h1>Forward ref </h1>
+      <UserInput ref={inputRef} />
+      <button onClick={updateInput}>Update Input</button>
     </div>
   )
 }
