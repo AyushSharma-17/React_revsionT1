@@ -1,22 +1,26 @@
-import { useTransition } from "react";
+import { useState } from "react";
 
 function App() {
-  const [pending, startTransition] = useTransition();
-  const handleButton = () => {
-    startTransition(async () => {
-      await new Promise(res => setTimeout(res, 5000));
-      console.log("update");
-    })
+  const [users, setUsers] = useState([]);
+  const [user, setUser] = useState('');
+  const handleAddUsers = () => {
+    setUsers([...users, user]);
+    // const total = users.length;
+    // const last = users[users.length - 1];
+    // const unique = [...new Set(users)].length;
   }
   return (
     <div>
-      <h1>useTransition hook</h1>
+      {/* <h2>total users: {total}</h2> */}
+      {/* <h2>total unique users: {unique}</h2> */}
+      {/* <h2>last user: {last}</h2> */}
+      <input type="text" onChange={(event) => setUser(event.target.value)} placeholder="add new users" />
+      <button onClick={handleAddUsers}>Add Users</button>
       {
-        pending ?
-          <img style={{ width: "100px" }} src="https://static.vecteezy.com/system/resources/thumbnails/046/814/197/small_2x/minimalist-black-and-white-icon-bar-with-border-for-loading-animated-motion-graphic-illustration-design-trailer-great-for-web-or-app-elements-video.jpg" />
-          : null
+        users.map((item, index) => {
+          return <h4 key={index}>{item}</h4>
+        })
       }
-      <button disabled={pending} onClick={handleButton}>click me to upadate</button>
     </div>
   )
 }
