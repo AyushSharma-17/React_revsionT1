@@ -1,28 +1,19 @@
-import { useRef } from "react";
-
+import User1 from "./User1";
 function App() {
-  const inputRef = useRef(null);
-  const inputHandler = () => {
-    console.log(inputRef);
-    inputRef.current.style.color = "red";
-    inputRef.current.placeholder = "enter name";
-    inputRef.current.value = "name";
+
+  const displayName = (name) => {
+    alert(name);
   }
-  const toggleHander = () => {
-    if (inputRef.current.style.display != 'none') {
-      inputRef.current.style.display = 'none';
-    } else {
-      inputRef.current.style.display = 'inline';
-    }
+  const getUser = () => {
+    alert("get user function called");
   }
   return (
     <div>
-      <h1>useRef</h1>
-      <h2>
-        <button onClick={toggleHander}>toggle</button>
-        <input ref={inputRef} type="text" placeholder="enter name" />
-        <button onClick={inputHandler}>handle Input</button>
-      </h2>
+      <h1>
+        Call parent component function from child
+      </h1>
+      <User1 displayName={displayName} name="Ayush" getUser={getUser} />
+      <User1 displayName={displayName} name="Sam" getUser={getUser} />
     </div>
   )
 }
