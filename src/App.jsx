@@ -1,19 +1,15 @@
-import { useRef } from "react";
-import UserInput from "./UserInput";
+import { useFormStatus } from "react-dom";
+import CustomerForm from "./CustomerForm";
 function App() {
-
-  const inputRef = useRef(null);
-
-  const updateInput = () => {
-    inputRef.current.value = 1000;
-    inputRef.current.style.color = "red";
-    inputRef.current.focus();
+  const handleSubmit = async () => {
+    await new Promise(res => setTimeout(res, 2000));
   }
   return (
     <div>
-      <h1>Forward ref </h1>
-      <UserInput ref={inputRef} />
-      <button onClick={updateInput}>Update Input</button>
+      <h1>useFormStatus hook in reactjs</h1>
+      <form action={handleSubmit}>
+        <CustomerForm />
+      </form>
     </div>
   )
 }
