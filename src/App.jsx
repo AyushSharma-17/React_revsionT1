@@ -1,27 +1,28 @@
-import { useState } from "react";
+import { useRef } from "react";
+
 function App() {
-  const [cardStyle, setCardStyle] = useState({
-    height: "500px",
-    width: "500px",
-    backgroundColor: "blue"
-  })
-  // const handleClick = () => {
-  //   setCardStyle({
-  //     height: "500px",
-  //     width: "500px",
-  //     backgroundColor: "red"
-  //   })
-  const updateTheme = (bgColor, textColor) => {
-    setCardStyle({ ...cardStyle, backgroundColor: bgColor, color: textColor });
+  const inputRef = useRef(null);
+  const inputHandler = () => {
+    console.log(inputRef);
+    inputRef.current.style.color = "red";
+    inputRef.current.placeholder = "enter name";
+    inputRef.current.value = "name";
   }
-
-
+  const toggleHander = () => {
+    if (inputRef.current.style.display != 'none') {
+      inputRef.current.style.display = 'none';
+    } else {
+      inputRef.current.style.display = 'inline';
+    }
+  }
   return (
     <div>
-      <div style={cardStyle}>
-        <h1>hello here</h1>
-      </div>
-      <button onClick={() => updateTheme('red', 'green')}>click</button>
+      <h1>useRef</h1>
+      <h2>
+        <button onClick={toggleHander}>toggle</button>
+        <input ref={inputRef} type="text" placeholder="enter name" />
+        <button onClick={inputHandler}>handle Input</button>
+      </h2>
     </div>
   )
 }
