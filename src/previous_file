@@ -679,3 +679,69 @@ function App() {
 }
 export default App;
 
+
+/////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+/////updating object using a useSate  //////////////////////////////////
+////////////////////////////////////////////////////
+
+
+import { useState } from "react";
+function App() {
+  const [data, setData] = useState({
+    name: 'ayush',
+    age: 20,
+    country: 'india'
+  });
+
+  const handleName = (val) => {
+    setData({ ...data, name: val }); // ✅ update immutably
+  };
+  return (
+    <div>
+      <input type="text" placeholder="updating name" onChange={(event) => handleName(event.target.value)} />
+      <h2>name :{data.name}</h2>
+      <h2>age :{data.age}</h2>
+      <h2>country :{data.country}</h2>
+
+
+    </div>
+  )
+
+
+
+}
+export default App;
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////      updating the last name of the array using useSate //////////////////////////
+///////////////////////////////////////////////////////
+
+
+
+import { useState } from "react";
+
+function App() {
+  const [user, setUser] = useState(["ayush", "sam", "ham"]);
+
+  const handlUser = (name) => {
+    user[user.length - 1] = name;
+    setUser([...user]);
+  }
+  return (
+    <div>
+      <h1> updating last name</h1>
+      <input type="text" onChange={(e) => handlUser(e.target.value)} placeholder="enter new name" />
+
+      <hr />
+      {
+        user.map((Item, index) => (
+          <h3 key={index}>{Item}</h3>
+        ))
+      }
+    </div>
+  )
+}
+export default App;
